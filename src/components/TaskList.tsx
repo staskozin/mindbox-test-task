@@ -9,7 +9,7 @@ export default function TaskList(props: TaskListProps) {
   return (
     <ul>
       {props.tasks.map(t => {
-        return <TaskElem key={t.id} id={t.id} isDone={t.isDone} text={t.text} />
+        return <TaskElem key={t.id} id={t.id} isDone={t.isDone} text={t.text} deleteTask={props.deleteTask} />
       })}
     </ul>
   );
@@ -17,4 +17,5 @@ export default function TaskList(props: TaskListProps) {
 
 type TaskListProps = {
   tasks: Array<Task>
+  deleteTask: (id: number) => void
 }

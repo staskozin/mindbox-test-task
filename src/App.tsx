@@ -11,7 +11,7 @@ export default function App() {
 
   function createTask(text: string): void {
     if (text === '') return
-    const newId: number = Math.max(...tasks.map(t => t.id)) + 1
+    const newId: number = tasks.length > 0 ? Math.max(...tasks.map(t => t.id)) + 1 : 1
     setTasks([
       ...tasks,
       {
@@ -20,6 +20,10 @@ export default function App() {
         isDone: false
       }
     ])
+  }
+
+  function deleteTask(id: number): void {
+    setTasks(tasks.filter(t => t.id !== id))
   }
 
   return (
@@ -44,7 +48,7 @@ export default function App() {
         <span>Выполнено 0 из 10 задач</span>
         <button>Удалить выполненные</button>
         <NewTaskInput createTask={createTask} />
-        <TaskList tasks={tasks} />
+        <TaskList tasks={tasks} deleteTask={deleteTask} />
       </main>
 
       <footer>Сделал <a href="https://staskozin.ru">Станислав Козин</a> в 2024 году</footer>
