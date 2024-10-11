@@ -1,12 +1,31 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
 
-function App() {
+import NewTaskInput from './components/NewTaskInput'
+import TaskList from './components/TaskList'
+
+import usePersistentState from './usePersistentState'
+
+
+export default function App() {
+  const [tasks, setTasks] = usePersistentState<Array<Task>>('tasks', [])
+
+  function createTask(text: string): void {
+    if (text === '') return
+    const newId: number = Math.max(...tasks.map(t => t.id)) + 1
+    setTasks([
+      ...tasks,
+      {
+        id: newId,
+        text: text,
+        isDone: false
+      }
+    ])
+  }
+
   return (
     <>
-      <div className="container">
+      <main className="container">
         <h1>Список дел</h1>
-
         <div>
           <span>Показывать:</span>
           <label>
@@ -22,38 +41,19 @@ function App() {
             <span>Выполненные</span>
           </label>
         </div>
-
         <span>Выполнено 0 из 10 задач</span>
-
         <button>Удалить выполненные</button>
-
-        <div className="add">
-          <input className="add__input" type="text" />
-          <button className="add__button"><img src="icon/plus.svg" alt="" /></button>
-        </div>
-
-        <ul>
-          <li>
-            <input type="checkbox" />
-            <textarea spellCheck="true"></textarea>
-            <button><img src="icon/trash.svg" alt="" /></button>
-          </li>
-          <li>
-            <input type="checkbox" />
-            <textarea spellCheck="false"></textarea>
-            <button><img src="icon/trash.svg" alt="" /></button>
-          </li>
-          <li>
-            <input type="checkbox" />
-            <textarea spellCheck="false"></textarea>
-            <button><img src="icon/trash.svg" alt="" /></button>
-          </li>
-        </ul>
-      </div>
+        <NewTaskInput createTask={createTask} />
+        <TaskList tasks={tasks} />
+      </main>
 
       <footer>Сделал <a href="https://staskozin.ru">Станислав Козин</a> в 2024 году</footer>
     </>
   );
 }
 
-export default App;
+export type Task = {
+  id: number
+  text: string
+  isDone: boolean
+}
