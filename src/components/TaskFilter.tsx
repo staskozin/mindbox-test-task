@@ -16,7 +16,7 @@ export default function TaskFilter(props: TaskFilterProps) {
       {
         Object.keys(filters).map(f => {
           return (
-            <label>
+            <label key={f}>
               <input type="radio" name="task-filter" checked={props.filter === f} onChange={e => props.updateTaskFilter(f as TaskFilterValue)} />
               <span>{filters[f as TaskFilterValue]}</span>
             </label>
