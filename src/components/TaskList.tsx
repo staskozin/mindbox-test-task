@@ -11,6 +11,11 @@ export default function TaskList(props: TaskListProps) {
       {props.tasks.map(t => {
         return <TaskElem key={t.id} id={t.id} isDone={t.isDone} text={t.text} deleteTask={props.deleteTask} updateTaskDoneness={props.updateTaskDoneness} />
       })}
+      {
+        props.tasks.length === 0 ?
+          <li>Список пуст</li>
+          : null
+      }
     </ul>
   );
 }
