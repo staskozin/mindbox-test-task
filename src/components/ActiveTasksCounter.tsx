@@ -7,7 +7,7 @@ function declOfNum(n: number, titles: Array<string>): string {
 
 function createMessage(tasksNumber: number, activeTasksNumber: number) {
   if (tasksNumber === 0) {
-    return 'Нет дел'
+    return 'Делать нечего'
   }
   if (activeTasksNumber === 0) {
     return 'Все дела сделаны'

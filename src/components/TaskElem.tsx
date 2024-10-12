@@ -1,13 +1,36 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import { Task } from '../App'
 
+import './TaskElem.css'
+
+/**
+ * Динамически меняет высоту поля
+ */
+function resizeTextarea(textarea: HTMLTextAreaElement) {
+  textarea.style.height = "1em";
+  textarea.style.height = (textarea.scrollHeight) + "px";
+}
 
 export default function TaskElem(props: TaskElemProps) {
+  const textarea = useRef<HTMLTextAreaElement>(null)
+
+  useEffect(() => {
+    resizeTextarea(textarea.current!)
+  }, [])
+
   return (
-    <li>
+    <li className='task'>
       <input type="checkbox" checked={props.isDone} onChange={() => props.updateTaskDoneness(props.id, !props.isDone)} />
-      <textarea spellCheck={false} value={props.text} onChange={(e) => props.updateTaskText(props.id, e.target.value)} />
+      <textarea
+        ref={textarea}
+        spellCheck={false}
+        value={props.text}
+        onChange={(e) => {
+          props.updateTaskText(props.id, e.target.value)
+          resizeTextarea(textarea.current!)
+        }}
+      />
       <button onClick={() => props.deleteTask(props.id)}>
         <img src="icon/trash.svg" alt="Удалить дело" />
       </button>

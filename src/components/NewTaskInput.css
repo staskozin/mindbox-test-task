@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 2em;
-  margin-right: -0.833333em;
+  margin-right: -0.8em;
 }
 
 .new-task-input__input {
@@ -16,4 +16,10 @@
   appearance: none;
   -webkit-appearance: none;
   font: inherit;
+}
+
+@media screen and (max-width: 428px) {
+  .new-task-input {
+    margin-bottom: 1.5em;
+  }
 }

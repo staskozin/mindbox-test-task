@@ -35,6 +35,11 @@ button img {
   margin-top: 4px;
 }
 
+.delete-done-button {
+  width: initial;
+  height: initial;
+}
+
 input {
   font: inherit;
 }
@@ -70,6 +75,12 @@ a {
 @media screen and (max-width: 1037px) {
   .container {
     margin-top: 1em;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .container {
+    padding: 0.5em 1em 1.5em;
   }
 }
 

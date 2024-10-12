@@ -70,7 +70,7 @@ export default function App() {
         <ActiveTasksCounter tasksNumber={tasks.length} activeTasksNumber={activeTasksNumber} />
         {
           tasks.filter(t => t.isDone).length > 0 ?
-            <button onClick={() => deleteDoneTasks()}>Удалить выполненные</button>
+            <button className='delete-done-button' onClick={() => deleteDoneTasks()}>Удалить выполненные</button>
             : null
         }
         <NewTaskInput createTask={createTask} filter={filter} updateTaskFilter={setFilter} />

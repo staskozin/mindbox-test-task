@@ -4,16 +4,18 @@ import TaskElem from './TaskElem'
 
 import { Task } from '../App'
 
+import './TaskList.css'
+
 
 export default function TaskList(props: TaskListProps) {
   return (
-    <ul>
+    <ul className='task-list'>
       {props.tasks.map(t => {
         return <TaskElem key={t.id} id={t.id} isDone={t.isDone} text={t.text} deleteTask={props.deleteTask} updateTaskDoneness={props.updateTaskDoneness} updateTaskText={props.updateTaskText} />
       })}
       {
         props.tasks.length === 0 ?
-          <li>Список пуст</li>
+          <li style={{ textAlign: 'center', fontSize: '0.9em' }}>Пусто</li>
           : null
       }
     </ul>
