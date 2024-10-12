@@ -44,6 +44,17 @@ export default function App() {
     }))
   }
 
+  function updateTaskText(id: number, text: string): void {
+    const updatedTaskIndex: number = tasks.findIndex(t => t.id === id)
+    if (updatedTaskIndex < 0) return
+    setTasks(tasks.map(t => {
+      if (t.id === id) {
+        t.text = text
+      }
+      return t
+    }))
+  }
+
   function filterTasks(filterValue: TaskFilterValue): Array<Task> {
     if (filterValue === 'all') return tasks
     return tasks.filter(t => t.isDone === (filterValue === 'done'))
@@ -58,12 +69,12 @@ export default function App() {
         <TaskFilter filter={filter} updateTaskFilter={setFilter} />
         <ActiveTasksCounter tasksNumber={tasks.length} activeTasksNumber={activeTasksNumber} />
         {
-          tasks.filter(t => t.isDone).length > 0  ?
+          tasks.filter(t => t.isDone).length > 0 ?
             <button onClick={() => deleteDoneTasks()}>Удалить выполненные</button>
             : null
         }
         <NewTaskInput createTask={createTask} />
-        <TaskList tasks={filterTasks(filter)} deleteTask={deleteTask} updateTaskDoneness={updateTaskDoneness} />
+        <TaskList tasks={filterTasks(filter)} deleteTask={deleteTask} updateTaskDoneness={updateTaskDoneness} updateTaskText={updateTaskText} />
       </main>
 
       <footer>Сделал <a href="https://staskozin.ru">Станислав Козин</a> в 2024 году</footer>
