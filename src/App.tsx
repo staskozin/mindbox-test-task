@@ -1,10 +1,11 @@
 import React from 'react'
 
+import TaskFilter from './components/TaskFilter'
+import ActiveTasksCounter from './components/ActiveTasksCounter'
 import NewTaskInput from './components/NewTaskInput'
 import TaskList from './components/TaskList'
 
 import usePersistentState from './usePersistentState'
-import TaskFilter from './components/TaskFilter'
 
 
 export default function App() {
@@ -44,11 +45,14 @@ export default function App() {
     return tasks.filter(t => t.isDone === (filterValue === 'done'))
   }
 
+  const activeTasksNumber: number = tasks.filter(t => !t.isDone).length
+
   return (
     <>
       <main className="container">
         <h1>Список дел</h1>
         <TaskFilter filter={filter} updateTaskFilter={setFilter} />
+        <ActiveTasksCounter tasksNumber={tasks.length} activeTasksNumber={activeTasksNumber} />
         <button>Удалить выполненные</button>
         <NewTaskInput createTask={createTask} />
         <TaskList tasks={filterTasks(filter)} deleteTask={deleteTask} updateTaskDoneness={updateTaskDoneness} />
