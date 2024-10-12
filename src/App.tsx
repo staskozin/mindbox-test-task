@@ -29,8 +29,12 @@ export default function App() {
     setTasks(tasks.filter(t => t.id !== id))
   }
 
+  function deleteDoneTasks(): void {
+    setTasks(tasks.filter(t => !t.isDone))
+  }
+
   function updateTaskDoneness(id: number, isDone: boolean): void {
-    const updatedTaskIndex = tasks.findIndex(t => t.id === id)
+    const updatedTaskIndex: number = tasks.findIndex(t => t.id === id)
     if (updatedTaskIndex < 0) return
     setTasks(tasks.map(t => {
       if (t.id === id) {
@@ -53,7 +57,11 @@ export default function App() {
         <h1>Список дел</h1>
         <TaskFilter filter={filter} updateTaskFilter={setFilter} />
         <ActiveTasksCounter tasksNumber={tasks.length} activeTasksNumber={activeTasksNumber} />
-        <button>Удалить выполненные</button>
+        {
+          tasks.filter(t => t.isDone).length > 0  ?
+            <button onClick={() => deleteDoneTasks()}>Удалить выполненные</button>
+            : null
+        }
         <NewTaskInput createTask={createTask} />
         <TaskList tasks={filterTasks(filter)} deleteTask={deleteTask} updateTaskDoneness={updateTaskDoneness} />
       </main>
