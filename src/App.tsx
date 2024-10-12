@@ -16,12 +16,12 @@ export default function App() {
     if (text === '') return
     const newId: number = tasks.length > 0 ? Math.max(...tasks.map(t => t.id)) + 1 : 1
     setTasks([
-      ...tasks,
       {
         id: newId,
         text: text,
         isDone: false
-      }
+      },
+      ...tasks
     ])
   }
 
