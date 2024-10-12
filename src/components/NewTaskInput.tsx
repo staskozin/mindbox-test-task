@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react'
 
+import { TaskFilterValue } from '../App'
+
 import './NewTaskInput.css'
 
 
@@ -11,6 +13,9 @@ export default function NewTaskInput(props: NewTaskInputProps) {
     props.createTask(value)
     setValue('')
     input.current?.focus()
+    if (props.filter === 'done') {
+      props.updateTaskFilter('active')
+    }
   }
 
   return (
@@ -37,4 +42,6 @@ export default function NewTaskInput(props: NewTaskInputProps) {
 
 type NewTaskInputProps = {
   createTask: (text: string) => void
+  filter: TaskFilterValue
+  updateTaskFilter: (value: TaskFilterValue) => void
 }

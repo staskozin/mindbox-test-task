@@ -73,7 +73,7 @@ export default function App() {
             <button onClick={() => deleteDoneTasks()}>Удалить выполненные</button>
             : null
         }
-        <NewTaskInput createTask={createTask} />
+        <NewTaskInput createTask={createTask} filter={filter} updateTaskFilter={setFilter} />
         <TaskList tasks={filterTasks(filter)} deleteTask={deleteTask} updateTaskDoneness={updateTaskDoneness} updateTaskText={updateTaskText} />
       </main>
 
