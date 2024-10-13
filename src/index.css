@@ -38,6 +38,9 @@ button img {
 .delete-done-button {
   width: initial;
   height: initial;
+  color: #3366cc;
+  text-decoration: underline dashed;
+  text-underline-offset: 4px;
 }
 
 input {
@@ -60,6 +63,10 @@ a {
     color: #e30611;
     -webkit-transition: none;
     transition: none;
+  }
+
+  .delete-done-button:hover {
+    color: #e30611;
   }
 }
 
