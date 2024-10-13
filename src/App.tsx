@@ -44,6 +44,9 @@ export default function App() {
   }
 
   function deleteDoneTasks(): void {
+    if (filter === 'done') {
+      setFilter('all')
+    }
     setTasks(tasks.filter(t => !t.isDone))
   }
 
