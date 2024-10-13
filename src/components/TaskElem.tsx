@@ -8,7 +8,7 @@ import './TaskElem.css'
  * Динамически меняет высоту поля
  */
 function resizeTextarea(textarea: HTMLTextAreaElement) {
-  textarea.style.height = "1em";
+  textarea.style.height = "1.6em";
   textarea.style.height = (textarea.scrollHeight) + "px";
 }
 
