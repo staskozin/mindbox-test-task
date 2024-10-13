@@ -4,6 +4,7 @@ ToDo-приложение, позволяющее управлять текущ�
 
 [Посмотреть вживую](https://staskozin.github.io/mindbox-test-task/)
 
+![ToDo list example](./screenshot.png)
 
 ## Команды
 
