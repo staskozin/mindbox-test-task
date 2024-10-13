@@ -25,6 +25,20 @@ export default function App() {
     ])
   }
 
+  function createManyTasks(rows: Array<string>): void {
+    let newId: number = tasks.length > 0 ? Math.max(...tasks.map(t => t.id)) + 1 : 1
+    setTasks([
+      ...rows.filter(r => r.trim() !== '').map(r => {
+        return {
+          id: newId++,
+          text: r,
+          isDone: false
+        }
+      }),
+      ...tasks
+    ])
+  }
+
   function deleteTask(id: number): void {
     setTasks(tasks.filter(t => t.id !== id))
   }
@@ -78,7 +92,7 @@ export default function App() {
           </div>
         </div>
 
-        <NewTaskInput createTask={createTask} filter={filter} updateTaskFilter={setFilter} />
+        <NewTaskInput createTask={createTask} createManyTasks={createManyTasks} filter={filter} updateTaskFilter={setFilter} />
         <TaskList tasks={filterTasks(filter)} deleteTask={deleteTask} updateTaskDoneness={updateTaskDoneness} updateTaskText={updateTaskText} />
       </main>
 
