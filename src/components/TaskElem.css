@@ -28,7 +28,7 @@
 
 .task input[type="checkbox"]:checked+textarea {
   text-decoration: line-through;
-  color: #757575;
+  color: var(--text-color-disabled);
 }
 
 .task textarea {

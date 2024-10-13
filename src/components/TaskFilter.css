@@ -5,14 +5,22 @@
 }
 
 .filter input+span {
-  color: #3366cc;
+  color: var(--link-color);
   text-decoration: underline dashed;
   text-underline-offset: 4px;
   cursor: pointer;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  -webkit-transition-duration: .22s;
+  transition-duration: .22s;
 }
 
 .filter input+span:hover {
-  color: #e30611;
+  color: var(--link-color-hover);
+  -webkit-transition: none;
+  transition: none;
 }
 
 .filter input {
@@ -20,13 +28,13 @@
 }
 
 .filter input:checked+span {
-  color: #000000;
+  color: var(--text-color);
   text-decoration: none;
   cursor: default;
 }
 
 .filter input:disabled+span {
-  color: #757575;
+  color: var(--text-color-disabled);
   text-decoration: none;
   cursor: default;
 }
