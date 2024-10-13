@@ -66,13 +66,18 @@ export default function App() {
     <>
       <main className="container">
         <h1>Список дел</h1>
-        <TaskFilter filter={filter} updateTaskFilter={setFilter} />
-        <ActiveTasksCounter tasksNumber={tasks.length} activeTasksNumber={activeTasksNumber} />
-        {
-          tasks.filter(t => t.isDone).length > 0 ?
-            <button className='delete-done-button' onClick={() => deleteDoneTasks()}>Удалить сделанные</button>
-            : null
-        }
+        <div className="menu">
+          <TaskFilter filter={filter} updateTaskFilter={setFilter} />
+          <div>
+            {
+              tasks.filter(t => t.isDone).length > 0 ?
+                <button className='delete-done-button' onClick={() => deleteDoneTasks()}>Удалить сделанные</button>
+                : null
+            }
+            <ActiveTasksCounter tasksNumber={tasks.length} activeTasksNumber={activeTasksNumber} />
+          </div>
+        </div>
+
         <NewTaskInput createTask={createTask} filter={filter} updateTaskFilter={setFilter} />
         <TaskList tasks={filterTasks(filter)} deleteTask={deleteTask} updateTaskDoneness={updateTaskDoneness} updateTaskText={updateTaskText} />
       </main>

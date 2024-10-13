@@ -2,17 +2,18 @@ import React from 'react'
 
 import { TaskFilterValue } from '../App'
 
+import './TaskFilter.css'
+
 
 export default function TaskFilter(props: TaskFilterProps) {
   const filters: Record<TaskFilterValue, string> = {
     'all': 'Все',
     'active': 'Активные',
-    'done': 'Выполненные'
+    'done': 'Сделанные'
   }
 
   return (
-    <form>
-      <span>Показывать:</span>
+    <form className='filter'>
       {
         Object.keys(filters).map(f => {
           return (

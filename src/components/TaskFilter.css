@@ -1,0 +1,32 @@
+.filter {
+  display: flex;
+  column-gap: 1em;
+  flex-wrap: wrap;
+}
+
+.filter input+span {
+  color: #3366cc;
+  text-decoration: underline dashed;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.filter input+span:hover {
+  color: #e30611;
+}
+
+.filter input {
+  display: none;
+}
+
+.filter input:checked+span {
+  color: #000000;
+  text-decoration: none;
+  cursor: default;
+}
+
+.filter input:disabled+span {
+  color: #757575;
+  text-decoration: none;
+  cursor: default;
+}

@@ -11,7 +11,7 @@ body {
 }
 
 h1 {
-  margin: 0 0 0.5em;
+  margin: 0 0 0.25em;
   font-weight: 500;
 }
 
@@ -58,18 +58,6 @@ a {
   transition-duration: .22s;
 }
 
-@media (hover: hover) {
-  a:hover {
-    color: #e30611;
-    -webkit-transition: none;
-    transition: none;
-  }
-
-  .delete-done-button:hover {
-    color: #e30611;
-  }
-}
-
 .container {
   background-color: #ffffff;
   max-width: 920px;
@@ -77,6 +65,12 @@ a {
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   border-radius: 8px;
   padding: 1em 1.5em 2em;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
 }
 
 @media screen and (max-width: 1037px) {
@@ -94,5 +88,17 @@ a {
 @media screen and (max-width: 375px) {
   body {
     font-size: 16px;
+  }
+}
+
+@media (hover: hover) {
+  a:hover {
+    color: #e30611;
+    -webkit-transition: none;
+    transition: none;
+  }
+
+  .delete-done-button:hover {
+    color: #e30611;
   }
 }
