@@ -48,7 +48,7 @@ button img {
   width: initial;
   height: initial;
   color: var(--link-color);
-  text-decoration: underline dashed;
+  text-decoration: underline dashed 1px;
   text-underline-offset: 4px;
   -webkit-transition-property: color;
   transition-property: color;

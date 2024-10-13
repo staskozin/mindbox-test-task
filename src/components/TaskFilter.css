@@ -6,7 +6,7 @@
 
 .filter input+span {
   color: var(--link-color);
-  text-decoration: underline dashed;
+  text-decoration: underline dashed 1px;
   text-underline-offset: 4px;
   cursor: pointer;
   -webkit-transition-property: color;
