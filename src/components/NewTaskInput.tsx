@@ -25,8 +25,6 @@ export default function NewTaskInput(props: NewTaskInputProps) {
       if (document.activeElement === input.current) return
       if (document.activeElement?.tagName.toLowerCase() === 'textarea') return
       if (!e.key.match(/^.$/)) return
-      // if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'v') return
-      // if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') return
       if (e.ctrlKey || e.metaKey || e.altKey) return
       e.preventDefault()
       const newValue = input.current?.value + e.key
