@@ -68,7 +68,7 @@ export default function App() {
         <h1>Список дел</h1>
         <div className="menu">
           <TaskFilter filter={filter} updateTaskFilter={setFilter} />
-          <div>
+          <div className="menu-right-col">
             {
               tasks.filter(t => t.isDone).length > 0 ?
                 <button className='delete-done-button' onClick={() => deleteDoneTasks()}>Удалить сделанные</button>
