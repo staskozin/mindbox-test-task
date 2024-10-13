@@ -16,7 +16,12 @@ export default function TaskElem(props: TaskElemProps) {
   const textarea = useRef<HTMLTextAreaElement>(null)
 
   useEffect(() => {
-    resizeTextarea(textarea.current!)
+    const resize = () => resizeTextarea(textarea.current!)
+    resize()
+    window.addEventListener('resize', resize)
+    return () => {
+      window.removeEventListener('resize', resize)
+    }
   }, [])
 
   return (
