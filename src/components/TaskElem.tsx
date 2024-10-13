@@ -30,6 +30,11 @@ export default function TaskElem(props: TaskElemProps) {
           props.updateTaskText(props.id, e.target.value)
           resizeTextarea(textarea.current!)
         }}
+        onKeyDown={(e) => {
+          if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+            props.updateTaskDoneness(props.id, !props.isDone)
+          }
+        }}
       />
       <button onClick={() => props.deleteTask(props.id)}>
         <img src="icon/trash.svg" alt="Удалить дело" />
