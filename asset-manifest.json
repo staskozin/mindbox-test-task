@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/mindbox-test-task/static/css/main.0c36a07f.css",
+    "main.js": "/mindbox-test-task/static/js/main.70fad4a1.js",
+    "static/js/453.b2f9c533.chunk.js": "/mindbox-test-task/static/js/453.b2f9c533.chunk.js",
+    "index.html": "/mindbox-test-task/index.html",
+    "static/media/check-square.svg": "/mindbox-test-task/static/media/check-square.d281a7b5289ed79a6ee3.svg",
+    "static/media/square.svg": "/mindbox-test-task/static/media/square.3af9bf5c462f7b917aa7.svg",
+    "main.0c36a07f.css.map": "/mindbox-test-task/static/css/main.0c36a07f.css.map",
+    "main.70fad4a1.js.map": "/mindbox-test-task/static/js/main.70fad4a1.js.map",
+    "453.b2f9c533.chunk.js.map": "/mindbox-test-task/static/js/453.b2f9c533.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0c36a07f.css",
+    "static/js/main.70fad4a1.js"
+  ]
+}
