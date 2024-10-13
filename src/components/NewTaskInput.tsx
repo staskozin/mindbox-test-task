@@ -34,9 +34,28 @@ export default function NewTaskInput(props: NewTaskInputProps) {
       input.current?.focus()
     }
 
+    const paste = (e: ClipboardEvent) => {
+      if (document.activeElement?.tagName.toLowerCase() === 'textarea') return
+      const text = e.clipboardData?.getData('text/plain')
+      if (text?.includes('\n')) {
+        e.preventDefault()
+        const rows = (input.current?.value + text).split('\n')
+        createManyTasks(rows)
+        setValue('')
+        input.current?.focus()
+        return
+      }
+      if (text && input.current?.value === '') {
+        setValue(text)
+        input.current?.focus()
+      }
+    }
+
     document.addEventListener('keydown', focusWhenKeyPressed)
+    document.addEventListener('paste', paste)
     return () => {
       document.removeEventListener('keydown', focusWhenKeyPressed)
+      document.removeEventListener('paste', paste)
     }
   }, [createManyTasks])
 
