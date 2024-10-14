@@ -57,14 +57,40 @@ export default function App() {
   }
 
   function updateTaskDoneness(id: number, isDone: boolean): void {
+    // Получаем индекс обновленного элемента
     const updatedTaskIndex: number = tasks.findIndex(t => t.id === id)
     if (updatedTaskIndex < 0) return
-    setTasks(tasks.map(t => {
-      if (t.id === id) {
-        t.isDone = isDone
+
+    // Находим его новый индекс
+    let newIndex: number
+    if (isDone) {
+      newIndex = 0
+      for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i].isDone) {
+          newIndex = i - 1
+          break
+        }
+        newIndex = i
       }
-      return t
-    }))
+    } else {
+      newIndex = tasks.length - 1
+      for (let i = tasks.length - 1; i >= 0; i--) {
+        if (!tasks[i].isDone) {
+          newIndex = i + 1
+          break
+        }
+        newIndex = i
+      }
+    }
+
+    // Ставим элемент на новое место, а остальной массив раздвигаем
+    let newTasks = [...tasks]
+    const updatedTask = newTasks[updatedTaskIndex]
+    updatedTask.isDone = isDone
+    newTasks.splice(updatedTaskIndex, 1)
+    const beforeSlice = newTasks.slice(0, newIndex)
+    const afterSlice = newTasks.slice(newIndex)
+    setTasks([...beforeSlice, updatedTask, ...afterSlice])
   }
 
   function updateTaskText(id: number, text: string): void {
