@@ -1,12 +1,13 @@
 import React from 'react'
 
-import TaskFilter from './components/TaskFilter'
-import ActiveTasksCounter from './components/ActiveTasksCounter'
-import NewTaskInput from './components/NewTaskInput'
-import TaskList from './components/TaskList'
+import TaskFilter from '../TaskFilter/TaskFilter'
+import ActiveTasksCounter from '../ActiveTasksCounter/ActiveTasksCounter'
+import NewTaskInput from '../NewTaskInput/NewTaskInput'
+import TaskList from '../TaskList/TaskList'
 
-import usePersistentState from './usePersistentState'
+import usePersistentState from '../../hooks/usePersistentState'
 
+import './App.css'
 
 export default function App() {
   const [tasks, setTasks] = usePersistentState<Array<Task>>('tasks', [])

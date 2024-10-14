@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { TaskFilterValue } from '../App'
+import { TaskFilterValue } from '../App/App'
 
 import './TaskFilter.css'
 

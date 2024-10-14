@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 
-import { Task } from '../App'
+import { Task } from '../App/App'
 
 import './TaskElem.css'
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-import { TaskFilterValue } from '../App'
+import { TaskFilterValue } from '../App/App'
 
 import './NewTaskInput.css'
 

@@ -1,8 +1,8 @@
 import React from 'react'
 
-import TaskElem from './TaskElem'
+import TaskElem from '../TaskElem/TaskElem'
 
-import { Task } from '../App'
+import { Task } from '../App/App'
 
 import './TaskList.css'
 
