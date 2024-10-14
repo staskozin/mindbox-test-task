@@ -91,7 +91,13 @@ export default function App() {
     newTasks.splice(updatedTaskIndex, 1)
     const beforeSlice = newTasks.slice(0, newIndex)
     const afterSlice = newTasks.slice(newIndex)
-    setTasks([...beforeSlice, updatedTask, ...afterSlice])
+    newTasks = [...beforeSlice, updatedTask, ...afterSlice]
+    if (filter === 'active' && !newTasks.find(t => !t.isDone)) {
+      setFilter('all')
+    } else if (filter === 'done' && !newTasks.find(t => t.isDone)) {
+      setFilter('all')
+    }
+    setTasks(newTasks)
   }
 
   function updateTaskText(id: number, text: string): void {
