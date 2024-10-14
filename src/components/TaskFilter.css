@@ -17,6 +17,13 @@
   transition-duration: .22s;
 }
 
+.filter input:focus+span {
+  outline-style: solid;
+  outline-color: transparent;
+  box-shadow: 0 0 0 2px #0060df;
+  border-radius: 1px;
+}
+
 .filter input+span:hover {
   color: var(--link-color-hover);
   -webkit-transition: none;
@@ -24,7 +31,8 @@
 }
 
 .filter input {
-  display: none;
+  position: absolute;
+  opacity: 0;
 }
 
 .filter input:checked+span {

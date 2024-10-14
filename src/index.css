@@ -73,6 +73,13 @@ a {
   transition-duration: .22s;
 }
 
+input,
+textarea,
+button,
+a {
+  outline-color: #0060df;
+}
+
 .container {
   background-color: var(--container-color);
   max-width: 920px;
