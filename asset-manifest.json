@@ -1,17 +1,19 @@
 {
   "files": {
     "main.css": "/mindbox-test-task/static/css/main.2c02658a.css",
-    "main.js": "/mindbox-test-task/static/js/main.cd2b06ab.js",
+    "main.js": "/mindbox-test-task/static/js/main.7f116258.js",
     "static/js/453.b2f9c533.chunk.js": "/mindbox-test-task/static/js/453.b2f9c533.chunk.js",
     "index.html": "/mindbox-test-task/index.html",
+    "static/media/trash.svg": "/mindbox-test-task/static/media/trash.8b95aaf150e5ed5154a7f3668bc41f0e.svg",
     "static/media/check-square.svg": "/mindbox-test-task/static/media/check-square.d281a7b5289ed79a6ee3.svg",
+    "static/media/plus.svg": "/mindbox-test-task/static/media/plus.4aa3252642e90812440888777a4ef2c6.svg",
     "static/media/square.svg": "/mindbox-test-task/static/media/square.3af9bf5c462f7b917aa7.svg",
     "main.2c02658a.css.map": "/mindbox-test-task/static/css/main.2c02658a.css.map",
-    "main.cd2b06ab.js.map": "/mindbox-test-task/static/js/main.cd2b06ab.js.map",
+    "main.7f116258.js.map": "/mindbox-test-task/static/js/main.7f116258.js.map",
     "453.b2f9c533.chunk.js.map": "/mindbox-test-task/static/js/453.b2f9c533.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2c02658a.css",
-    "static/js/main.cd2b06ab.js"
+    "static/js/main.7f116258.js"
   ]
 }
