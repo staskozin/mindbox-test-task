@@ -17,7 +17,7 @@
   transition-duration: .22s;
 }
 
-.filter input:focus+span {
+.filter input:focus-visible+span {
   outline-style: solid;
   outline-color: transparent;
   box-shadow: 0 0 0 2px #0060df;
@@ -33,6 +33,7 @@
 .filter input {
   position: absolute;
   opacity: 0;
+  z-index: -1;
 }
 
 .filter input:checked+span {
