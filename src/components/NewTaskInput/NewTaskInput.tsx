@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { TaskFilterValue } from '../App/App'
 
 import './NewTaskInput.css'
+import plus from './plus.svg'
 
 
 export default function NewTaskInput(props: NewTaskInputProps) {
@@ -73,7 +74,7 @@ export default function NewTaskInput(props: NewTaskInputProps) {
         }}
       />
       <button onClick={handler}>
-        <img src="icon/plus.svg" alt="" />
+        <img src={plus} alt="" />
       </button>
     </div>
   );

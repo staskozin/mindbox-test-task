@@ -3,6 +3,8 @@ import React, { useEffect, useRef } from 'react'
 import { Task } from '../App/App'
 
 import './TaskElem.css'
+import trash from './trash.svg'
+
 
 /**
  * Динамически меняет высоту поля
@@ -42,7 +44,7 @@ export default function TaskElem(props: TaskElemProps) {
         }}
       />
       <button onClick={() => props.deleteTask(props.id)}>
-        <img src="icon/trash.svg" alt="Удалить дело" />
+        <img src={trash} alt="Удалить дело" />
       </button>
     </li>
   );
