@@ -40,7 +40,13 @@ export default function App() {
   }
 
   function deleteTask(id: number): void {
-    setTasks(tasks.filter(t => t.id !== id))
+    const newTasks = tasks.filter(t => t.id !== id)
+    if (filter === 'active' && !newTasks.find(t => !t.isDone)) {
+      setFilter('all')
+    } else if (filter === 'done' && !newTasks.find(t => t.isDone)) {
+      setFilter('all')
+    }
+    setTasks(newTasks)
   }
 
   function deleteDoneTasks(): void {
@@ -84,7 +90,7 @@ export default function App() {
       <main className="container">
         <h1>Список дел</h1>
         <div className="menu">
-          <TaskFilter filter={filter} updateTaskFilter={setFilter} />
+          <TaskFilter filter={filter} updateTaskFilter={setFilter} tasksNumber={tasks.length} activeTasksNumber={activeTasksNumber} />
           <div className="menu-right-col">
             {
               tasks.filter(t => t.isDone).length > 0 ?
